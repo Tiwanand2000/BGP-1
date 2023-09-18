@@ -30,7 +30,7 @@ function SkillList(){
     <Skill skill='Angular' emoji='✌️' color='red'/>
     <Skill skill='ReactJS' emoji='🫰' color='yellow'/>
     <Skill skill='HTML+CSS' emoji='👍' color='green'/>
-    <Skill skill='Javascript' emoji='🙌' color='blue'/>
+    <Skill skill='Javascript' emoji='🙌' color='orangered'/>
     </div>
 }
 
