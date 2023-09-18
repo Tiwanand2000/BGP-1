@@ -27,9 +27,9 @@ function Intro(){
 
 function SkillList(){
   return <div className='skill-list'>
-    <Skill skill='Angular' emoji='✌️' color='red'/>
+    <Skill skill='Angular' emoji='✌️' color='cyan'/>
     <Skill skill='ReactJS' emoji='🫰' color='yellow'/>
-    <Skill skill='HTML+CSS' emoji='👍' color='green'/>
+    <Skill skill='HTML+CSS' emoji='👍' color='lightgreen'/>
     <Skill skill='Javascript' emoji='🙌' color='orangered'/>
     </div>
 }
