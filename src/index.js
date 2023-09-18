@@ -1,43 +1,72 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
- function App(){
-  return <div>
- <Header/>
-    <Menu/>
-    <Footer/>
+import "../src/index.css";
+
+function App() {
+  return (
+    <div className="container">
+      <Header />
+      <Menu />
+      <Footer />
     </div>
- }
+  );
+}
 
- function Pizza(){
-  return <div>
-    <img src="images/spinaci.jpg" alt="Spinachio"/>
-  <h2>Pizza</h2>
-   </div>
- }
-
- function Menu(){
-  return <div>
-    <h2>Our Menu</h2>
-    <Pizza/>
-    <Pizza/>
-    <Pizza/>
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredient}</p>
+        <span>${props.price + 3}</span>
+      </div>
     </div>
- }
+  );
+}
 
- function Header(){
-  return <h1>Fast React Pizza.Co</h1>
- }
+function Menu() {
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+      <Pizza
+        photoName="images/spinaci.jpg"
+        name="Pizza Spinachi"
+        ingredient="Tomato, mozralla, spinach & ricotta cheese"
+        price={10}
+      />
+      <Pizza
+        photoName="images/funghi.jpg"
+        name="Pizza Funghi"
+        ingredient="Tomato, mozralla, mushrooms & ricotta cheese"
+        price={15}
+      />
+    </main>
+  );
+}
 
- function Footer(){
-  return <div>
-  <h4>We're currently open {new Date().toLocaleTimeString()} !! Visit soon </h4>
-   </div>
- }
+function Header() {
+  // const style = { color: "red", fontSize: "48", textTransform: "uppercase" };
+  const style = {};
+  return (
+    <header className="header">
+      <h1 style={style}>Fast React Pizza.Co</h1>;
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      We're currently open {new Date().toLocaleTimeString()} !! Visit soon{" "}
+    </footer>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
