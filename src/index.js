@@ -1,72 +1,48 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "../src/index.css";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
 function App() {
   return (
-    <div className="container">
-      <Header />
-      <Menu />
-      <Footer />
-    </div>
-  );
-}
-
-function Pizza(props) {
-  return (
-    <div className="pizza">
-      <img src={props.photoName} alt={props.name} />
-      <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredient}</p>
-        <span>${props.price + 3}</span>
+    <div className="card">
+      <Avatar />
+      <div className="data">
+        <Intro />
+        <SkillList />
       </div>
     </div>
   );
 }
 
-function Menu() {
-  return (
-    <main className="menu">
-      <h2>Our Menu</h2>
-      <Pizza
-        photoName="images/spinaci.jpg"
-        name="Pizza Spinachi"
-        ingredient="Tomato, mozralla, spinach & ricotta cheese"
-        price={10}
-      />
-      <Pizza
-        photoName="images/funghi.jpg"
-        name="Pizza Funghi"
-        ingredient="Tomato, mozralla, mushrooms & ricotta cheese"
-        price={15}
-      />
-    </main>
-  );
+function Avatar(){
+ return <img className='avatar' src="./images/wallpaper.jpg" alt="" />
 }
 
-function Header() {
-  // const style = { color: "red", fontSize: "48", textTransform: "uppercase" };
-  const style = {};
-  return (
-    <header className="header">
-      <h1 style={style}>Fast React Pizza.Co</h1>;
-    </header>
-  );
+function Intro(){
+  return <div>
+    <h1>Anand Tiwari</h1>
+    <p>A software developer working as a Hybrd developer from last 2 yrs at Snapwork Technologies Pvt Ltd.</p>
+  </div>
 }
 
-function Footer() {
-  return (
-    <footer className="footer">
-      We're currently open {new Date().toLocaleTimeString()} !! Visit soon{" "}
-    </footer>
-  );
+function SkillList(){
+  return <div className='skill-list'>
+    <Skill skill='Angular' emoji='✌️' color='red'/>
+    <Skill skill='ReactJS' emoji='🫰' color='yellow'/>
+    <Skill skill='HTML+CSS' emoji='👍' color='green'/>
+    <Skill skill='Javascript' emoji='🙌' color='blue'/>
+    </div>
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+function Skill(props){
+  return <div className='skill' style={{backgroundColor:props.color}}><span>{props.skill}</span> {props.emoji}</div>
+}
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <App />
-  </React.StrictMode>,
+  </StrictMode>
 );
