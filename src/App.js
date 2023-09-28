@@ -7,17 +7,17 @@ const messages = [
 ];
 
 export default function App() {
-  let [step, setState] = useState(1);
+  const [step, setState] = useState(1);
 
   function handleNext() {
     if (step < 3) {
-      setState((step = step + 1));
+      setState(step + 1);
     }
   }
 
   function handlePrevious() {
     if (step > 1) {
-      setState((step = step - 1));
+      setState(step - 1);
     }
   }
 
